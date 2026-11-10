@@ -1,0 +1,15 @@
+{
+  "fps": 30,
+  "scenes": [
+    { "id": "hook", "title": "Scene 01 — Attention Grabber", "duration": 180 },
+    { "id": "plotTwist", "title": "Scene 02 — Plot Twist", "duration": 180 },
+    { "id": "ada", "title": "Scene 03 — Ada Lovelace", "duration": 330 },
+    { "id": "skillIssue", "title": "Scene 04 — Skill Issue", "duration": 105 },
+    { "id": "machine", "title": "Scene 05 — Machine Language", "duration": 225 },
+    { "id": "otp", "title": "Scene 06 — OTP Joke", "duration": 135 },
+    { "id": "evolution", "title": "Scene 07 — Programming Evolution", "duration": 270 },
+    { "id": "ai", "title": "Scene 08 — Artificial Intelligence", "duration": 165 },
+    { "id": "aiStudio", "title": "Scene 09 — Google AI Studio", "duration": 210 },
+    { "id": "closing", "title": "Scene 10 — Final Comedy & Closing", "duration": 450 }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "devtrine-history-of-programming",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Devtrine Studio — educational motion graphics: sejarah programming (Remotion + React + TypeScript)",
+  "scripts": {
+    "dev": "remotion studio",
+    "audio": "node scripts/generate-audio.mjs",
+    "vo": "node scripts/sync-vo.mjs",
+    "build": "tsc --noEmit && remotion bundle --out-dir=build",
+    "render": "remotion render DevtrineHistory out/devtrine-history-of-programming.mp4",
+    "still": "remotion still DevtrineHistory out/preview.png --frame=60"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.542",
+    "@remotion/google-fonts": "4.0.542",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.542"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.2",
+    "typescript": "5.9.3"
+  }
+}
