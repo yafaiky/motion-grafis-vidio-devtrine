@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from "remotion";
 import timelineData from "./timeline-data.json";
-import { C, FONT } from "./theme";
+import { C } from "./theme";
 import { lerp } from "./lib/anim";
 import { BLINK_DURATION, BlinkWipe } from "./components/Transition";
 import { Scene01Hook } from "./scenes/Scene01Hook";
@@ -94,13 +94,10 @@ export const MainComposition: React.FC = () => {
         }}
       >
         <Img src={staticFile("images/devtrine-logo-removebg.png")} style={{ width: 60, objectFit: "contain" }} />
-        {/* <span style={{ fontFamily: FONT.sans, fontWeight: 900, fontSize: 20, color: C.charcoal, letterSpacing: "0.04em" }}>
-          DEVTRINE STUDIO
-        </span> */}
       </div>
 
       {/* Subtle Timeline Progress Bar above bottom UI zone */}
-      <div
+      {/* <div
         style={{
           position: "absolute",
           left: 70,
@@ -121,7 +118,7 @@ export const MainComposition: React.FC = () => {
             borderRadius: 999,
           }}
         />
-      </div>
+      </div> */}
     </AbsoluteFill>
   );
 };
