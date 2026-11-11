@@ -1,4 +1,4 @@
-# Devtrine Studio — Sejarah Programming (Remotion Motion Graphics)
+# Devtrine Studio — (Remotion Motion Graphics)
 
 Video motion graphics edukatif & komedi vertikal (**9:16**, **1080×1920**, **30 FPS**, **75 detik**) untuk TikTok, Instagram Reels, dan YouTube Shorts.
 
@@ -53,9 +53,9 @@ scripts/
    npm install
    ```
 
-2. **(Opsional) Regenerasi aset audio SFX & BGM**
+2. **Sinkronisasi Voice-Over (jika ada file baru di `public/audio/vo/`)**
    ```bash
-   npm run audio
+   npm run vo
    ```
 
 3. **Jalankan Remotion Studio (Live Preview)**
@@ -63,12 +63,35 @@ scripts/
    npm run dev
    ```
 
-4. **Typecheck & Bundle Production**
-   ```bash
-   npm run build
-   ```
-
-5. **Render Final Video MP4 (`out/devtrine-history-of-programming.mp4`)**
+4. **Render Final Video MP4 (`out/devtrine-history-of-programming.mp4`)**
    ```bash
    npm run render
    ```
+
+## Pengaturan Volume Suara
+
+Buka file **`src/theme.ts`** untuk mengatur volume audio:
+
+```typescript
+export const AUDIO = {
+  sfx: 0.4,  // Efek suara (kecilkan: 0.2 - 0.3 | besarkan: 0.5 - 0.6)
+  bgm: 0.18, // Musik latar
+  vo: 1.4,   // Suara orang bicara (Voice-Over)
+};
+```
+*Setelah mengubah angka, jalankan `npm run dev` untuk tes dengar atau `npm run render` untuk render ulang.*
+
+## Pengaturan Voice-Over (VO)
+
+Jika ingin mengganti atau memasukkan rekaman suara baru:
+
+1. Simpan file audio di folder `public/audio/vo/`:
+   - **Per scene (Rekomendasi):** `scene01.wav` s/d `scene10.wav`
+   - **Atau 1 file utuh:** `full.wav`
+2. Jalankan perintah sinkronisasi otomatis:
+   ```bash
+   npm run vo
+   ```
+Audio akan otomatis disinkronkan presisi dengan timeline tiap scene video.
+
+dan jangan lupa untuk minta scriptnya ke ai buat lebih akurat.
