@@ -64,7 +64,7 @@ export const Scene05MachineLanguage: React.FC = () => {
         </AbsoluteFill>
 
         <Header
-          kicker="ERA 1940-AN · KOMPUTER GENERASI PERTAMA"
+          kicker="ERA 1940-AN - KOMPUTER GENERASI PERTAMA"
           title="Bahasa Mesin: 0 & 1"
           highlight={["0", "1"]}
           tone="dark"

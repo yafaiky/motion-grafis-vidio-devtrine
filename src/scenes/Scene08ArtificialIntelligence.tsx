@@ -30,7 +30,7 @@ export const Scene08ArtificialIntelligence: React.FC = () => {
     <Background variant="dark">
       <Camera scale={camScale} focusX={540} focusY={920}>
         <Header
-          kicker="ERA MODERN · ARTIFICIAL INTELLIGENCE"
+          kicker="ERA MODERN - ARTIFICIAL INTELLIGENCE"
           title="Coding Dibantuin AI!"
           highlight={["AI!"]}
           tone="dark"

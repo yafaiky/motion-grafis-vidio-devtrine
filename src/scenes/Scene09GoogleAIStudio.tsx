@@ -36,13 +36,12 @@ export const Scene09GoogleAIStudio: React.FC = () => {
     <Background variant="dark">
       <Camera scale={camScale} focusX={540} focusY={920}>
         <Header
-          kicker="AI PLAYGROUND · EKSPERIMEN CODING"
+          kicker="AI PLAYGROUND - EKSPERIMEN CODING"
           title="Google AI Studio"
           highlight={["Google", "AI", "Studio"]}
           tone="dark"
           pills={[
             { text: "PROMPT → CODE", bg: C.cyan, color: C.charcoal },
-            { text: "ILUSTRASI UI", bg: C.charcoal, color: C.cyanLight },
           ]}
         />
 
