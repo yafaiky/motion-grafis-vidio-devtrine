@@ -6,6 +6,7 @@ import { Background } from "../components/Background";
 import { Camera } from "../components/Camera";
 import { DevtrineMascot } from "../components/DevtrineMascot";
 import { KineticText, Pill, SpeechBubble } from "../components/KineticTypography";
+import { IconSkull } from "../components/Icons";
 import { Sfx } from "../components/SoundEffect";
 import { Subtitles } from "../components/Subtitles";
 import { Flash } from "../components/Transition";
@@ -51,7 +52,14 @@ export const Scene04SkillIssue: React.FC = () => {
 
         {/* Giant SKILL ISSUE?! Kinetic Typography */}
         <div style={{ position: "absolute", top: 285, left: 80, right: 80, textAlign: "center" }}>
-          <Pill text="DIAGNOSA TEKNIS RESMI 💀" bg={C.charcoal} color={C.yellow} at={2} size={24} />
+          <Pill
+            text="DIAGNOSA TEKNIS RESMI"
+            icon={<IconSkull size={20} color={C.yellow} />}
+            bg={C.charcoal}
+            color={C.yellow}
+            at={2}
+            size={24}
+          />
           <div style={{ marginTop: 24 }}>
             <KineticText
               text="SKILL ISSUE?!"
@@ -92,7 +100,7 @@ export const Scene04SkillIssue: React.FC = () => {
               transform={`rotate(${Math.sin(frame * 0.9) * 12}, 55, -35)`}
             />
             <text x={0} y={-72} textAnchor="middle" fill={C.charcoal} fontFamily={FONT.mono} fontSize={24} fontWeight={900}>
-              BA-DUM-TSS! 🥁
+              BA-DUM-TSS!
             </text>
           </svg>
         </div>
@@ -109,14 +117,12 @@ export const Scene04SkillIssue: React.FC = () => {
           wingL={punch ? -42 + Math.sin(frame * 0.7) * 28 : 0}
           wingR={punch ? -42 + Math.cos(frame * 0.7) * 28 : 0}
           tears={punch ? 1 : 0}
-          legs
-          legPhase={frame * 0.7}
           frame={frame}
           shadow
         />
 
         <SpeechBubble
-          text="Bukan salah laptopnya guys! 😂"
+          text="Bukan salah laptopnya guys!"
           x={450}
           y={740}
           at={18}

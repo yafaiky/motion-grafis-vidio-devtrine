@@ -30,7 +30,7 @@ export const Subtitles: React.FC<{ cues: CaptionCue[] }> = ({ cues }) => {
         position: "absolute",
         left: 70,
         right: 70,
-        bottom: 390,
+        bottom: 330,
         display: "flex",
         flexDirection: "column",
         alignItems: "center",

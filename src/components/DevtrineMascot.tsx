@@ -5,9 +5,9 @@ import { C } from "../theme";
  * Devtrine — the studio mascot, built 1:1 from the Devtrine Studio logo geometry.
  * Units: ring outer radius = 100 (logo measured at 2000px: ring r=312, pupil r=158).
  *
- *   wings  = the two upper corners of the logo triangle (they flap / point)
+ *   wings  = the two upper corners of the logo triangle (triangular hands that gesture / flap)
  *   ring   = the eye (cyan light), inner white = eyeball, charcoal disc = pupil
- *   notch  = the white slot at the bottom tip → mouth
+ *   notch  = negative space cutout at bottom tip of logo (no mouth, expressions purely via eyes, wings, and brow)
  */
 
 export type Expression =
@@ -23,20 +23,28 @@ export type Expression =
   | "dizzy";
 
 type Brow = { l: number; r: number; arch: number; y?: number } | null;
-type Preset = { top: number; bottom: number; pupil: number; brow: Brow; mouth: number; pupilType?: PupilType };
+type Preset = {
+  top: number;
+  bottom: number;
+  pupil: number;
+  brow: Brow;
+  wingL: number;
+  wingR: number;
+  pupilType?: PupilType;
+};
 type PupilType = "normal" | "spiral" | "star";
 
 const PRESETS: Record<Expression, Preset> = {
-  neutral: { top: 0, bottom: 0, pupil: 1, brow: null, mouth: 0 },
-  happy: { top: 0, bottom: 0.32, pupil: 1, brow: { l: 4, r: 4, arch: 10 }, mouth: 0.35 },
-  curious: { top: 0.12, bottom: 0.04, pupil: 0.9, brow: { l: -12, r: 8, arch: 6 }, mouth: 0 },
-  shocked: { top: 0, bottom: 0, pupil: 0.55, brow: { l: -4, r: -4, arch: 22, y: -12 }, mouth: 0.85 },
-  confused: { top: 0.22, bottom: 0.08, pupil: 0.85, brow: { l: 12, r: -14, arch: -2 }, mouth: 0.12 },
-  laughing: { top: 0.52, bottom: 0.5, pupil: 1, brow: { l: 2, r: 2, arch: 16 }, mouth: 1 },
-  amazed: { top: 0, bottom: 0.08, pupil: 1.12, brow: { l: -4, r: -4, arch: 20, y: -8 }, mouth: 0.7, pupilType: "star" },
-  panic: { top: 0, bottom: 0, pupil: 0.45, brow: { l: 12, r: 12, arch: 18 }, mouth: 0.8 },
-  annoyed: { top: 0.46, bottom: 0.1, pupil: 0.9, brow: { l: 4, r: 4, arch: -4 }, mouth: 0 },
-  dizzy: { top: 0.05, bottom: 0.05, pupil: 1, brow: { l: 10, r: -6, arch: 4 }, mouth: 0.4, pupilType: "spiral" },
+  neutral: { top: 0, bottom: 0, pupil: 1, brow: null, wingL: 0, wingR: 0 },
+  happy: { top: 0, bottom: 0.32, pupil: 1, brow: { l: 4, r: 4, arch: 14 }, wingL: -18, wingR: 18 },
+  curious: { top: 0.12, bottom: 0.04, pupil: 0.9, brow: { l: -14, r: 8, arch: 8 }, wingL: 16, wingR: -10 },
+  shocked: { top: 0, bottom: 0, pupil: 0.48, brow: { l: -4, r: -4, arch: 24, y: -14 }, wingL: -28, wingR: 28 },
+  confused: { top: 0.22, bottom: 0.08, pupil: 0.85, brow: { l: 14, r: -14, arch: -2 }, wingL: -12, wingR: 20 },
+  laughing: { top: 0.48, bottom: 0.45, pupil: 1, brow: { l: 2, r: 2, arch: 18 }, wingL: -22, wingR: 22 },
+  amazed: { top: 0, bottom: 0.08, pupil: 1.15, brow: { l: -4, r: -4, arch: 22, y: -10 }, wingL: -20, wingR: 20, pupilType: "star" },
+  panic: { top: 0, bottom: 0, pupil: 0.42, brow: { l: 14, r: 14, arch: 20, y: -6 }, wingL: -36, wingR: 36 },
+  annoyed: { top: 0.46, bottom: 0.1, pupil: 0.9, brow: { l: 6, r: 6, arch: -6 }, wingL: 12, wingR: 12 },
+  dizzy: { top: 0.05, bottom: 0.05, pupil: 1, brow: { l: 10, r: -6, arch: 4 }, wingL: 18, wingR: -18, pupilType: "spiral" },
 };
 
 export type MascotProps = {
@@ -53,11 +61,11 @@ export type MascotProps = {
   sy?: number;
   wingL?: number;
   wingR?: number;
-  mouth?: number;
+  mouth?: number; // Kept for backwards compatibility, mouth rendering removed
   pupilScale?: number;
   pupil?: PupilType;
-  legs?: boolean;
-  legPhase?: number;
+  legs?: boolean; // Kept for backwards compatibility, legs rendering removed
+  legPhase?: number; // Kept for backwards compatibility
   hat?: boolean;
   mustache?: boolean;
   sweat?: number;
@@ -77,7 +85,9 @@ const pts = (arr: [number, number][]) => arr.map((p) => `${p[0].toFixed(2)},${p[
 // Logo geometry (units)
 const LEFT_WING: [number, number][] = [[-129.2, -67.6], [0, -64.2], [0, 10], [-94.5, -32.9]];
 const RIGHT_WING: [number, number][] = [[134.3, -60.6], [0, -64.2], [0, 10], [97.2, -23.5]];
-const CHIN: [number, number][] = [[-70.5, 70], [66.1, 70], [10.9, 123.4], [-18, 123.4]];
+// Clean chin path with natural logo notch cutout (no separate mouth)
+const CHIN_PATH = "M -70.5,70 L 66.1,70 L 10.9,123.4 L 9.3,110 Q 9.3,106 5.3,106 L -12.4,106 Q -16.4,106 -16.6,110 L -18,123.4 Z";
+
 const RING_R = 87.2;
 const RING_W = 25.6;
 const EYE_R = 74.4;
@@ -116,13 +126,10 @@ export const DevtrineMascot: React.FC<MascotProps> = ({
   rotate = 0,
   sx = 1,
   sy = 1,
-  wingL = 0,
-  wingR = 0,
-  mouth,
+  wingL,
+  wingR,
   pupilScale,
   pupil,
-  legs = false,
-  legPhase = 0,
   hat = false,
   mustache = false,
   sweat = 0,
@@ -139,17 +146,19 @@ export const DevtrineMascot: React.FC<MascotProps> = ({
   const closed = top + bottom >= 0.95;
   const pScale = pupilScale ?? p.pupil;
   const pType = pupil ?? p.pupilType ?? "normal";
-  const m = mouth ?? p.mouth;
   const brow = hideBrow ? null : p.brow;
 
   const yT = -EYE_R + top * EYE_R * 2;
   const yB = EYE_R - bottom * EYE_R * 2;
-  const lw = LEFT_WING.map((q) => rot(q, wingL));
-  const rw = RIGHT_WING.map((q) => rot(q, -wingR));
+
+  // Triangular hands (wings): use explicit prop if provided, else expressive preset
+  const actualWingL = wingL !== undefined ? wingL : p.wingL;
+  const actualWingR = wingR !== undefined ? wingR : p.wingR;
+  const lw = LEFT_WING.map((q) => rot(q, actualWingL));
+  const rw = RIGHT_WING.map((q) => rot(q, -actualWingR));
 
   const w = size * 2;
   const h = size * 2.2;
-  const legSwing = Math.sin(legPhase) * 32;
 
   return (
     <div
@@ -172,31 +181,15 @@ export const DevtrineMascot: React.FC<MascotProps> = ({
           </clipPath>
         </defs>
 
-        {shadow && <ellipse cx={0} cy={legs ? 172 : 158} rx={70} ry={10} fill={C.charcoal} opacity={0.12} />}
+        {/* Gentle floating drop shadow (no legs) */}
+        {shadow && <ellipse cx={0} cy={142} rx={60} ry={8} fill={C.charcoal} opacity={0.12} />}
 
-        {/* legs (only when running / standing) */}
-        {legs && (
-          <g stroke={C.charcoal} strokeWidth={8} strokeLinecap="round" fill={C.charcoal}>
-            {[-1, 1].map((side) => {
-              const sw = side * legSwing;
-              const hx = side < 0 ? -11 : 4;
-              const [fx, fy] = rot([0, 46], sw);
-              return (
-                <g key={side}>
-                  <line x1={hx} y1={118} x2={hx + fx} y2={118 + fy} />
-                  <ellipse cx={hx + fx + 6} cy={118 + fy + 2} rx={13} ry={6} stroke="none" />
-                </g>
-              );
-            })}
-          </g>
-        )}
-
-        {/* body: logo triangle parts */}
+        {/* Body: Logo triangular hands & chin geometry */}
         <polygon points={pts(lw)} fill={C.cyan} />
         <polygon points={pts(rw)} fill={C.cyan} />
-        <polygon points={pts(CHIN)} fill={C.cyan} />
+        <path d={CHIN_PATH} fill={C.cyan} />
 
-        {/* eye */}
+        {/* Eye: Cyan ring & white eyeball */}
         <circle r={RING_R} fill={C.white} stroke={C.cyanLight} strokeWidth={RING_W} />
         <g clipPath={`url(#eye${uid})`}>
           <g transform={`translate(${lookX * 18}, ${lookY * 16}) scale(${pScale})`}>
@@ -222,7 +215,7 @@ export const DevtrineMascot: React.FC<MascotProps> = ({
         </g>
         {closed && <path d="M-44,12 Q0,-34 44,12" fill="none" stroke={C.charcoal} strokeWidth={11} strokeLinecap="round" />}
 
-        {/* brow */}
+        {/* Eyebrow: primary emotional indicator */}
         {brow && (
           <path
             d={`M-44,${-126 + (brow.y ?? 0) + brow.l} Q0,${-126 + (brow.y ?? 0) - brow.arch} 44,${-126 + (brow.y ?? 0) + brow.r}`}
@@ -231,17 +224,6 @@ export const DevtrineMascot: React.FC<MascotProps> = ({
             strokeWidth={11}
             strokeLinecap="round"
           />
-        )}
-
-        {/* mouth = logo notch */}
-        {m < 0.05 ? (
-          <path d="M-17.3,124.5 L-16.6,110 Q-16.4,106 -12.4,106 L5.3,106 Q9.3,106 9.3,110 L9.3,124.5 Z" fill={C.white} />
-        ) : (
-          <g>
-            <ellipse cx={-4} cy={110 + 4 * m} rx={15 + 6 * m} ry={4 + 12 * m} fill={C.charcoal} />
-            {m > 0.45 && <ellipse cx={-4} cy={110 + 12 * m} rx={9 * m} ry={4 * m} fill={C.red} />}
-            <rect x={-10} y={106 - 2 * m} width={12} height={7} rx={2} fill={C.white} />
-          </g>
         )}
 
         {mustache && (

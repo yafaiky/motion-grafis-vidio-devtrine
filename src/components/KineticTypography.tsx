@@ -137,12 +137,21 @@ export const KineticText: React.FC<{
 };
 
 /** Small rounded label (reference-inspired info pills). */
-export const Pill: React.FC<{ text: string; bg?: string; color?: string; at?: number; size?: number; style?: React.CSSProperties }> = ({
+export const Pill: React.FC<{
+  text: string;
+  bg?: string;
+  color?: string;
+  at?: number;
+  size?: number;
+  icon?: React.ReactNode;
+  style?: React.CSSProperties;
+}> = ({
   text,
   bg = C.charcoal,
   color = C.white,
   at = 0,
   size = 26,
+  icon,
   style,
 }) => {
   const frame = useCurrentFrame();
@@ -150,7 +159,9 @@ export const Pill: React.FC<{ text: string; bg?: string; color?: string; at?: nu
   return (
     <div
       style={{
-        display: "inline-block",
+        display: "inline-flex",
+        alignItems: "center",
+        gap: size * 0.35,
         background: bg,
         color,
         fontFamily: FONT.mono,
@@ -165,7 +176,8 @@ export const Pill: React.FC<{ text: string; bg?: string; color?: string; at?: nu
         ...style,
       }}
     >
-      {text}
+      {icon && <span style={{ display: "inline-flex", alignItems: "center" }}>{icon}</span>}
+      <span>{text}</span>
     </div>
   );
 };
@@ -179,7 +191,7 @@ export const Header: React.FC<{
   title: string;
   highlight?: string[];
   at?: number;
-  pills?: { text: string; bg?: string; color?: string }[];
+  pills?: { text: string; bg?: string; color?: string; icon?: React.ReactNode }[];
   tone?: "light" | "dark" | "sepia";
   align?: "left" | "center";
   exitAt?: number;
@@ -232,7 +244,7 @@ export const Header: React.FC<{
       {pills.length > 0 && (
         <div style={{ display: "flex", gap: 14, marginTop: 20, justifyContent: align === "center" ? "center" : "flex-start" }}>
           {pills.map((p, i) => (
-            <Pill key={p.text} text={p.text} bg={p.bg} color={p.color} at={at + 14 + i * 4} />
+            <Pill key={p.text} text={p.text} bg={p.bg} color={p.color} icon={p.icon} at={at + 14 + i * 4} />
           ))}
         </div>
       )}

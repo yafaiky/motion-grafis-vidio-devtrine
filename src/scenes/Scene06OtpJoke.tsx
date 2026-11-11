@@ -6,6 +6,7 @@ import { Background } from "../components/Background";
 import { Camera } from "../components/Camera";
 import { DevtrineMascot } from "../components/DevtrineMascot";
 import { KineticText, Pill, SpeechBubble } from "../components/KineticTypography";
+import { IconSmartphone, IconXCircle } from "../components/Icons";
 import { Sfx } from "../components/SoundEffect";
 import { Subtitles } from "../components/Subtitles";
 import { Flash } from "../components/Transition";
@@ -26,7 +27,14 @@ export const Scene06OtpJoke: React.FC = () => {
       <Camera scale={camScale} x={shk.x} y={shk.y} focusX={540} focusY={900}>
         {/* Giant 0 & 1 Headline */}
         <div style={{ position: "absolute", top: 230, left: 80, right: 80, textAlign: "center" }}>
-          <Pill text="KLARIFIKASI PENTING 📱" bg={C.charcoal} color={C.cyanLight} at={2} size={24} />
+          <Pill
+            text="KLARIFIKASI PENTING"
+            icon={<IconSmartphone size={20} color={C.cyanLight} />}
+            bg={C.charcoal}
+            color={C.cyanLight}
+            at={2}
+            size={24}
+          />
           <div style={{ marginTop: 18 }}>
             <KineticText
               text="IYA, 0 DAN 1 DOANG!"
@@ -72,7 +80,7 @@ export const Scene06OtpJoke: React.FC = () => {
             {/* SMS Notification Card */}
             <rect x={-130} y={-188} width={260} height={95} rx={18} fill={C.cyanPale} stroke={C.charcoal} strokeWidth={4} />
             <text x={-110} y={-152} fill={C.charcoal} fontFamily={FONT.sans} fontSize={20} fontWeight={800}>
-              📩 SMS · KOMPUTER 1945
+              SMS · KOMPUTER 1945
             </text>
             <text x={-110} y={-122} fill={C.charcoal} fontFamily={FONT.sans} fontSize={18} fontWeight={600}>
               Jangan kasih ke siapa-siapa!
@@ -121,9 +129,13 @@ export const Scene06OtpJoke: React.FC = () => {
                 fontSize: 44,
                 whiteSpace: "nowrap",
                 boxShadow: `8px 8px 0 ${C.charcoal}`,
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
               }}
             >
-              ❌ BUKAN OTP!
+              <IconXCircle size={44} color={C.red} />
+              <span>BUKAN OTP!</span>
             </div>
           )}
         </div>

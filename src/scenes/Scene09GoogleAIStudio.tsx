@@ -6,6 +6,7 @@ import { Background } from "../components/Background";
 import { Camera } from "../components/Camera";
 import { DevtrineMascot } from "../components/DevtrineMascot";
 import { Header, SpeechBubble } from "../components/KineticTypography";
+import { IconCheck } from "../components/Icons";
 import { Sfx } from "../components/SoundEffect";
 import { Subtitles } from "../components/Subtitles";
 
@@ -91,9 +92,19 @@ export const Scene09GoogleAIStudio: React.FC = () => {
                 padding: "8px 22px",
                 borderRadius: 999,
                 transform: `scale(${runClick})`,
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
               }}
             >
-              {frame >= 108 ? "✓ DONE" : "▶ RUN PROMPT"}
+              {frame >= 108 ? (
+                <>
+                  <IconCheck size={22} color={C.charcoal} />
+                  <span>DONE</span>
+                </>
+              ) : (
+                <span>▶ RUN PROMPT</span>
+              )}
             </div>
           </div>
 
@@ -177,7 +188,7 @@ export const Scene09GoogleAIStudio: React.FC = () => {
           bg={C.yellow}
         />
         <SpeechBubble
-          text="1 detik langsung jadi kodenya! 🤩"
+          text="1 detik langsung jadi kodenya!"
           x={550}
           y={1165}
           at={116}

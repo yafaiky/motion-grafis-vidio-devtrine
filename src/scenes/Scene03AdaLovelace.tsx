@@ -6,6 +6,7 @@ import { Background } from "../components/Background";
 import { Camera } from "../components/Camera";
 import { DevtrineMascot } from "../components/DevtrineMascot";
 import { Callout, Header, SpeechBubble } from "../components/KineticTypography";
+import { IconScroll, IconZap } from "../components/Icons";
 import { Sfx } from "../components/SoundEffect";
 import { Subtitles } from "../components/Subtitles";
 import { Flash } from "../components/Transition";
@@ -167,8 +168,8 @@ export const Scene03AdaLovelace: React.FC = () => {
                 highlight={["Nge-Lag!"]}
                 at={170}
                 pills={[
-                  { text: "1843: ALGORITMA 📜", bg: C.sepiaInk, color: C.sepia },
-                  { text: "2026: NGE-LAG 😭", bg: C.red, color: C.white },
+                  { text: "1843: ALGORITMA", icon: <IconScroll size={18} color={C.sepia} />, bg: C.sepiaInk, color: C.sepia },
+                  { text: "2026: NGE-LAG", icon: <IconZap size={18} color={C.white} />, bg: C.red, color: C.white },
                 ]}
               />
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, Audio, Img, Sequence, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Img, Sequence, staticFile } from "remotion";
 import timelineData from "./timeline-data.json";
 import { C } from "./theme";
 import { lerp } from "./lib/anim";
@@ -37,9 +37,6 @@ export const TIMELINE = timelineData.scenes.map((s) => {
 export const TOTAL_FRAMES = cursor; // 2250 frames = 75.0s @ 30fps
 
 export const MainComposition: React.FC = () => {
-  const frame = useCurrentFrame();
-  const progress = frame / TOTAL_FRAMES;
-
   return (
     <AbsoluteFill style={{ backgroundColor: C.paper, overflow: "hidden" }}>
       {/* Background Music with automatic fade-in/out & ducking */}
