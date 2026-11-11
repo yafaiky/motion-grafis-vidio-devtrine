@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Img, staticFile, useCurrentFrame } from "remotion";
 import { C, FONT } from "../theme";
 import { autoBlink, easeOut, keys, lerp, shake, spr } from "../lib/anim";
 import { Background } from "../components/Background";
@@ -100,45 +100,114 @@ export const Scene03AdaLovelace: React.FC = () => {
             left: 420,
             top: 900,
             transform: `translate(-50%, -50%) scale(${portraitPop})`,
+            width: 440,
+            height: 500,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          <svg width={440} height={500} viewBox="-220 -250 440 500" style={{ overflow: "visible" }}>
-            {/* Ornate Victorian oval frame */}
-            <ellipse cx={0} cy={0} rx={178} ry={215} fill="#C88A2B" stroke={C.sepiaInk} strokeWidth={9} />
-            <ellipse cx={0} cy={0} rx={154} ry={190} fill="#EAD8B3" stroke={C.sepiaInk} strokeWidth={6} />
-            {/* Dress shoulders */}
-            <path d="M-125,170 Q-95,70 0,72 Q95,70 125,170 Z" fill={C.sepiaRed} stroke={C.sepiaInk} strokeWidth={6} />
-            <path d="M-55,75 Q0,115 55,75" fill="none" stroke="#FBF3E0" strokeWidth={12} strokeLinecap="round" />
-            {/* Neck & head */}
-            <rect x={-22} y={22} width={44} height={60} rx={18} fill={C.skin} stroke={C.sepiaInk} strokeWidth={6} />
-            <ellipse cx={0} cy={-32} rx={64} ry={76} fill={C.skin} stroke={C.sepiaInk} strokeWidth={6} />
-            {/* Victorian parted hair + side curls */}
-            <path d="M-66,-48 Q-60,-118 0,-112 Q60,-118 66,-48 Q40,-82 0,-72 Q-40,-82 -66,-48 Z" fill={C.sepiaInk} />
-            <ellipse cx={-68} cy={-22} rx={18} ry={38} fill={C.sepiaInk} />
-            <ellipse cx={68} cy={-22} rx={18} ry={38} fill={C.sepiaInk} />
-            {/* Eyes & warm smile */}
-            <circle cx={-24} cy={-34} r={6} fill={C.sepiaInk} />
-            <circle cx={24} cy={-34} r={6} fill={C.sepiaInk} />
-            <path d="M-16,-2 Q0,12 16,-2" fill="none" stroke={C.sepiaInk} strokeWidth={5} strokeLinecap="round" />
-            {/* Quill pen writing on parchment */}
-            <g transform={`translate(75, 110) rotate(${Math.sin(frame * 0.25) * 10 - 15})`}>
-              <path d="M0,40 L75,-55 Q95,-30 55,10 Z" fill={C.white} stroke={C.sepiaInk} strokeWidth={5} />
-              <line x1={0} y1={40} x2={75} y2={-55} stroke={C.sepiaInk} strokeWidth={4} />
-            </g>
-            {/* Ribbon banner */}
-            <rect x={-165} y={175} width={330} height={54} rx={14} fill={C.sepiaInk} />
-            <text x={0} y={210} textAnchor="middle" fill={C.sepia} fontFamily={FONT.serif} fontSize={28} fontWeight={700}>
-              ADA LOVELACE (1843)
-            </text>
+          {/* Ornate Victorian Gold / Sepia Frame with the Real Historical Photo */}
+          <div
+            style={{
+              position: "relative",
+              width: 350,
+              height: 420,
+              borderRadius: "50%",
+              background: "#C88A2B",
+              border: `9px solid ${C.sepiaInk}`,
+              boxShadow: `10px 10px 0 rgba(59,44,30,0.35)`,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: 308,
+                height: 380,
+                borderRadius: "50%",
+                border: `6px solid ${C.sepiaInk}`,
+                overflow: "hidden",
+                backgroundColor: "#EAD8B3",
+                position: "relative",
+              }}
+            >
+              <Img
+                src={staticFile("images/Ada_lovelace.jpg")}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center 15%",
+                }}
+              />
+              {/* Subtle sepia vintage tone overlay */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "#D4BC93",
+                  opacity: 0.12,
+                  mixBlendMode: "multiply",
+                  pointerEvents: "none",
+                }}
+              />
+            </div>
+          </div>
+
+          {/* Quill pen writing on parchment */}
+          <svg
+            width={120}
+            height={120}
+            viewBox="0 0 120 120"
+            style={{
+              position: "absolute",
+              right: 15,
+              bottom: 45,
+              overflow: "visible",
+              transform: `rotate(${Math.sin(frame * 0.25) * 10 - 15}deg)`,
+              zIndex: 3,
+            }}
+          >
+            <path d="M10,80 L85,-15 Q105,10 65,50 Z" fill={C.white} stroke={C.sepiaInk} strokeWidth={5} />
+            <line x1={10} y1={80} x2={85} y2={-15} stroke={C.sepiaInk} strokeWidth={4} />
           </svg>
+
+          {/* Ribbon banner */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: 12,
+              background: C.sepiaInk,
+              border: `4px solid #C88A2B`,
+              borderRadius: 14,
+              padding: "8px 24px",
+              boxShadow: `0 6px 0 rgba(0,0,0,0.25)`,
+              zIndex: 4,
+            }}
+          >
+            <div
+              style={{
+                fontFamily: FONT.serif,
+                fontWeight: 700,
+                fontSize: 26,
+                color: C.sepia,
+                letterSpacing: "0.04em",
+                whiteSpace: "nowrap",
+              }}
+            >
+              ADA LOVELACE (1843)
+            </div>
+          </div>
         </div>
 
         <Callout text="ALGORITMA PERTAMA!" x={780} y={760} tx={650} ty={900} at={42} bg={C.yellow} />
 
         {/* Devtrine in 1843 admiring Ada */}
         <DevtrineMascot
-          x={230}
-          y={1145}
+          x={200}
+          y={1290}
           size={175}
           expression="amazed"
           lookX={0.65}

@@ -98,30 +98,6 @@ export const MainComposition: React.FC = () => {
       >
         <Img src={staticFile("images/devtrine-logo-removebg.png")} style={{ width: 60, objectFit: "contain" }} />
       </div>
-
-      {/* Subtle Timeline Progress Bar above bottom UI zone */}
-      {/* <div
-        style={{
-          position: "absolute",
-          left: 70,
-          right: 70,
-          bottom: 350,
-          height: 10,
-          background: "rgba(39, 39, 39, 0.2)",
-          borderRadius: 999,
-          overflow: "hidden",
-          zIndex: 55,
-        }}
-      >
-        <div
-          style={{
-            width: `${progress * 100}%`,
-            height: "100%",
-            background: C.cyan,
-            borderRadius: 999,
-          }}
-        />
-      </div> */}
     </AbsoluteFill>
   );
 };

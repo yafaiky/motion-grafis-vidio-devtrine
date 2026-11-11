@@ -107,21 +107,21 @@ export const Scene08ArtificialIntelligence: React.FC = () => {
         <div
           style={{
             position: "absolute",
-            left: 885,
+            left: 850,
             top: 645 + Math.sin(frame * 0.16) * 16,
             transform: `translate(-50%, -50%) scale(${botPop})`,
             background: C.cyan,
             color: C.charcoal,
             border: `5px solid ${C.white}`,
-            borderRadius: 999,
-            padding: "14px 26px",
+            padding: "10px 20px",
             fontFamily: FONT.mono,
             fontWeight: 900,
-            fontSize: 26,
+            fontSize: 25,
             boxShadow: `0 0 28px ${C.cyanLight}`,
+            whiteSpace: "nowrap",
           }}
         >
-          ✦ SIAP BANTU BOS!
+          SIAP BANTU BOS!
         </div>
 
         {/* Devtrine amazed (starry pupil) watching code write itself */}

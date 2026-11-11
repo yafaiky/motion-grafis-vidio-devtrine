@@ -194,7 +194,7 @@ export const Scene02PlotTwist: React.FC = () => {
             shadow
           />
 
-          <SpeechBubble text="Tunggu... HAH?!" x={330} y={760} at={30} until={86} tail="left" size={38} bg={C.yellow} />
+          <SpeechBubble text="Tunggu... HAH?!" x={330} y={777} at={30} until={86} tail="left" size={38} bg={C.yellow} />
           <SpeechBubble text="Kok gue berkumis bangsawan?!" x={370} y={720} at={116} until={176} tail="left" size={34} />
         </Camera>
 
