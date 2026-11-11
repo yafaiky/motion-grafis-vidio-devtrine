@@ -86,14 +86,14 @@ export const MainComposition: React.FC = () => {
           background: "rgba(255, 255, 255, 0.9)",
           border: `3px solid ${C.charcoal}`,
           borderRadius: "50%",    
-          width: 70,               
-          height: 70,              
+          width: 80,               
+          height: 80,              
           padding: 0,              
           boxShadow: `4px 4px 0 ${C.charcoal}`,
           zIndex: 60,
         }}
       >
-        <Img src={staticFile("images/devtrine-logo-removebg.png")} style={{ width: 50, objectFit: "contain" }} />
+        <Img src={staticFile("images/devtrine-logo-removebg.png")} style={{ width: 60, objectFit: "contain" }} />
         {/* <span style={{ fontFamily: FONT.sans, fontWeight: 900, fontSize: 20, color: C.charcoal, letterSpacing: "0.04em" }}>
           DEVTRINE STUDIO
         </span> */}

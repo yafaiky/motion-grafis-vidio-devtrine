@@ -218,14 +218,12 @@ export const Scene07ProgrammingEvolution: React.FC = () => {
           {
             from: 4,
             to: 95,
-            tag: "excited",
             text: "Untungnya teknologi terus berkembang.",
             hi: ["teknologi", "berkembang."],
           },
           {
             from: 95,
             to: 266,
-            tag: "excited",
             text: "Muncullah bahasa pemrograman seperti C, C++, Java, sampai Python!",
             hi: ["C,", "C++,", "Java,", "Python!"],
           },
