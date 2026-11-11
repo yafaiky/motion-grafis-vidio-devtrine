@@ -216,14 +216,12 @@ export const Scene02PlotTwist: React.FC = () => {
             {
               from: 6,
               to: 62,
-              tag: "dramatic",
               text: "Plot twist...",
               hi: ["Plot", "twist..."],
             },
             {
               from: 62,
               to: 176,
-              tag: "dramatic",
               text: "Ternyata sejarah programming udah dimulai sejak ratusan tahun lalu!",
               hi: ["sejarah", "programming", "ratusan", "tahun"],
             },

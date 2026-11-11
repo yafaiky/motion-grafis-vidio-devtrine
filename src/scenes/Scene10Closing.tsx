@@ -333,21 +333,18 @@ export const Scene10Closing: React.FC = () => {
           {
             from: 6,
             to: 118,
-            tag: "laughing",
             text: "Dulu manusia ngajarin komputer, sekarang komputer bantuin manusia.",
             hi: ["Dulu", "manusia", "sekarang", "komputer"],
           },
           {
             from: 118,
             to: 272,
-            tag: "laughing",
             text: "Besok-besok jangan sampai kita yang disuruh komputer ngerjain tugas!",
             hi: ["jangan", "sampai", "ngerjain", "tugas!"],
           },
           {
             from: 276,
             to: 444,
-            tag: "excited",
             text: "Follow dulu, sebelum AI jadi bos kita!",
             hi: ["Follow", "dulu,", "AI", "bos", "kita!"],
           },

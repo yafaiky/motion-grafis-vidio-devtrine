@@ -266,14 +266,12 @@ export const Scene03AdaLovelace: React.FC = () => {
           {
             from: 6,
             to: 112,
-            tag: "storytelling",
             text: "Ada Lovelace, yang dikenal sebagai programmer pertama di dunia.",
             hi: ["Ada", "Lovelace,", "programmer", "pertama"],
           },
           {
             from: 112,
             to: 215,
-            tag: "storytelling",
             text: "Bayangin, zaman dulu udah mikirin coding...",
             hi: ["zaman", "dulu", "coding..."],
           },

@@ -192,14 +192,12 @@ export const Scene09GoogleAIStudio: React.FC = () => {
           {
             from: 4,
             to: 95,
-            tag: "energetic",
             text: "Contohnya Google AI Studio...",
             hi: ["Google", "AI", "Studio..."],
           },
           {
             from: 95,
             to: 206,
-            tag: "energetic",
             text: "Yang bisa kita gunakan buat bereksperimen dengan teknologi AI!",
             hi: ["bereksperimen", "teknologi", "AI!"],
           },

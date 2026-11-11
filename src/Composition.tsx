@@ -78,23 +78,25 @@ export const MainComposition: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          top: 110,
-          right: 75,
+          top: 40,
+          right: 50,
           display: "flex",
           alignItems: "center",
-          gap: 10,
+          justifyContent: "center", 
           background: "rgba(255, 255, 255, 0.9)",
           border: `3px solid ${C.charcoal}`,
-          borderRadius: 999,
-          padding: "6px 18px 6px 10px",
+          borderRadius: "50%",    
+          width: 70,               
+          height: 70,              
+          padding: 0,              
           boxShadow: `4px 4px 0 ${C.charcoal}`,
           zIndex: 60,
         }}
       >
-        <Img src={staticFile("images/devtrine-logo.png")} style={{ width: 36, height: 36, objectFit: "contain" }} />
-        <span style={{ fontFamily: FONT.sans, fontWeight: 900, fontSize: 20, color: C.charcoal, letterSpacing: "0.04em" }}>
+        <Img src={staticFile("images/devtrine-logo-removebg.png")} style={{ width: 50, objectFit: "contain" }} />
+        {/* <span style={{ fontFamily: FONT.sans, fontWeight: 900, fontSize: 20, color: C.charcoal, letterSpacing: "0.04em" }}>
           DEVTRINE STUDIO
-        </span>
+        </span> */}
       </div>
 
       {/* Subtle Timeline Progress Bar above bottom UI zone */}

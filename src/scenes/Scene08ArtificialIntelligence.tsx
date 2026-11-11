@@ -158,7 +158,6 @@ export const Scene08ArtificialIntelligence: React.FC = () => {
           {
             from: 4,
             to: 160,
-            tag: "impressed",
             text: "Dan sekarang, kita bahkan bisa memanfaatkan AI untuk membantu coding!",
             hi: ["sekarang,", "AI", "membantu", "coding!"],
           },

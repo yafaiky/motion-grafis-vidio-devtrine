@@ -40,25 +40,6 @@ export const Subtitles: React.FC<{ cues: CaptionCue[] }> = ({ cues }) => {
         zIndex: 50,
       }}
     >
-      {cue.tag && (
-        <div
-          style={{
-            background: C.cyan,
-            color: C.charcoal,
-            fontFamily: FONT.mono,
-            fontWeight: 800,
-            fontSize: 22,
-            letterSpacing: "0.08em",
-            padding: "4px 16px",
-            borderRadius: 999,
-            border: `3px solid ${C.charcoal}`,
-            marginBottom: -10,
-            zIndex: 2,
-          }}
-        >
-          DEVTRINE · {cue.tag.toUpperCase()}
-        </div>
-      )}
       <div
         style={{
           background: "rgba(28, 30, 33, 0.94)",

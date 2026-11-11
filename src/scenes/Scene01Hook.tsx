@@ -41,7 +41,7 @@ export const Scene01Hook: React.FC = () => {
       <Camera scale={camScale} x={shk.x + shk2.x} y={shk.y + shk2.y} focusX={540} focusY={620}>
         {/* Top hook badge + Kinetic Headline */}
         <div style={{ position: "absolute", top: 230, left: 90, right: 90, textAlign: "center" }}>
-          <Pill text="SEJARAH PROGRAMMING · EP.01" bg={C.charcoal} color={C.cyanLight} at={4} size={24} />
+          <Pill text="SEJARAH PROGRAMMING - EP.01" bg={C.charcoal} color={C.cyanLight} at={4} size={24} />
           <div style={{ marginTop: 22 }}>
             <KineticText
               text="SIAPA ORANG PERTAMA"
@@ -183,18 +183,16 @@ export const Scene01Hook: React.FC = () => {
       <Flash at={84} max={0.55} />
 
       <Subtitles
-        cues={[
+        cues={[ 
           {
             from: 4,
             to: 78,
-            tag: "excited",
             text: "Guys! Pernah nggak sih kalian mikir...",
             hi: ["Guys!", "mikir..."],
           },
           {
             from: 78,
             to: 176,
-            tag: "excited",
             text: "Siapa orang pertama yang bikin komputer bisa ngoding?!",
             hi: ["orang", "pertama", "ngoding?!"],
           },
