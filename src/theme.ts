@@ -39,3 +39,10 @@ export const H = 1920;
 
 /** Safe area for TikTok / Reels / Shorts UI overlays. */
 export const SAFE = { top: 220, bottom: 1540, left: 90, right: 990 };
+
+/** Master Audio Volume Settings (atur volume global di sini) */
+export const AUDIO = {
+  sfx: 0.3, // Master volume SFX (misal 0.3 - 0.5 agar tidak menimpa suara bicara)
+  bgm: 0.18, // Master volume BGM / musik latar
+  vo: 1, // Master volume Voice-Over
+};

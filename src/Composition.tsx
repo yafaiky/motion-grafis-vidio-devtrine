@@ -1,7 +1,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, Sequence, staticFile } from "remotion";
 import timelineData from "./timeline-data.json";
-import { C } from "./theme";
+import { AUDIO, C } from "./theme";
 import { lerp } from "./lib/anim";
 import { BLINK_DURATION, BlinkWipe } from "./components/Transition";
 import { Scene01Hook } from "./scenes/Scene01Hook";
@@ -45,8 +45,14 @@ export const MainComposition: React.FC = () => {
         volume={(f) => {
           const fadeIn = lerp(f, [0, 20], [0, 1]);
           const fadeOut = lerp(f, [TOTAL_FRAMES - 35, TOTAL_FRAMES], [1, 0]);
-          return 0.34 * fadeIn * fadeOut;
+          return AUDIO.bgm * fadeIn * fadeOut;
         }}
+      />
+
+      {/* Synced Voice-Over (Google AI Studio) */}
+      <Audio
+        src={staticFile("audio/vo/vo-synced.wav")}
+        volume={AUDIO.vo}
       />
 
       {/* 10 Modular Scenes */}

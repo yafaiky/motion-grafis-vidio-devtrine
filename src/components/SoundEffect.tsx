@@ -1,5 +1,6 @@
 import React from "react";
 import { Audio, Sequence, staticFile } from "remotion";
+import { AUDIO } from "../theme";
 
 export type SfxName =
   | "whoosh"
@@ -46,6 +47,6 @@ export const Sfx: React.FC<{ name: SfxName; at: number; volume?: number; rate?: 
   duration,
 }) => (
   <Sequence from={at} durationInFrames={duration} layout="none" name={`sfx:${name}`}>
-    <Audio src={staticFile(`audio/sfx/${name}.wav`)} volume={volume} playbackRate={rate} />
+    <Audio src={staticFile(`audio/sfx/${name}.wav`)} volume={volume * AUDIO.sfx} playbackRate={rate} />
   </Sequence>
 );

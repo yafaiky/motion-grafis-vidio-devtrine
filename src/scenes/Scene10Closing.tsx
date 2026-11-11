@@ -18,7 +18,6 @@ import {
   IconLaptop,
   IconMegaphone,
   IconMonitor,
-  IconSparkle,
   IconSparkles,
   IconTie,
   IconUser,
