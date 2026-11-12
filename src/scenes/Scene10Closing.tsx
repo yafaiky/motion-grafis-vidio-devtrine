@@ -500,18 +500,24 @@ export const Scene10Closing: React.FC = () => {
         cues={[
           {
             from: 6,
-            to: 118,
-            text: "Dulu manusia ngajarin komputer, sekarang komputer bantuin manusia.",
-            hi: ["Dulu", "manusia", "sekarang", "komputer"],
+            to: 100,
+            text: "Dulu manusia ngajarin komputer,",
+            hi: ["Dulu", "manusia", "komputer"],
           },
           {
-            from: 118,
-            to: 272,
+            from: 104,
+            to: 175,
+            text: "sekarang komputer bantuin manusia.",
+            hi: ["sekarang", "komputer", "bantuin", "manusia."],
+          },
+          {
+            from: 180,
+            to: 295,
             text: "Besok-besok jangan sampai kita yang disuruh komputer ngerjain tugas!",
             hi: ["jangan", "sampai", "ngerjain", "tugas!"],
           },
           {
-            from: 276,
+            from: 320,
             to: 444,
             text: "Follow dulu, sebelum AI jadi bos kita!",
             hi: ["Follow", "dulu,", "AI", "bos", "kita!"],
