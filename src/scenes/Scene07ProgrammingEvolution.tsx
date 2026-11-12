@@ -230,7 +230,7 @@ export const Scene07ProgrammingEvolution: React.FC = () => {
         <SpeechBubble
           text="Java panjang amat kodenya!"
           x={360}
-          y={1220}
+          y={1250}
           at={150}
           until={192}
           tail="left"
@@ -240,7 +240,7 @@ export const Scene07ProgrammingEvolution: React.FC = () => {
         <SpeechBubble
           text="Python sesingkat chat gebetan!"
           x={720}
-          y={1220}
+          y={1300}
           at={205}
           until={265}
           tail="right"

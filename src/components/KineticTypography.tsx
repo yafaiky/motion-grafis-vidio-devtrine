@@ -204,7 +204,7 @@ export const Header: React.FC<{
     <div
       style={{
         position: "absolute",
-        top: 230,
+        top: 130,
         left: 90,
         right: 90,
         textAlign: align,

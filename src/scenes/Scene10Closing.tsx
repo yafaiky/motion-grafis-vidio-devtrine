@@ -411,7 +411,7 @@ export const Scene10Closing: React.FC = () => {
               style={{
                 position: "absolute",
                 left: 540,
-                top: 990,
+                top: 999,
                 transform: `translate(-50%, -50%) scale(${ctaPop})`,
                 display: "flex",
                 alignItems: "center",
@@ -424,8 +424,8 @@ export const Scene10Closing: React.FC = () => {
               }}
             >
               <Img
-                src={staticFile("images/devtrine-logo.png")}
-                style={{ width: 84, height: 84, objectFit: "contain" }}
+                src={staticFile("images/devtrine-logo-removebg.png")}
+                style={{ width: 65, height: 65, objectFit: "contain" }}
               />
               <div>
                 <div
@@ -435,6 +435,7 @@ export const Scene10Closing: React.FC = () => {
                     fontSize: 44,
                     color: C.charcoal,
                     lineHeight: 1.05,
+                    whiteSpace: "nowrap"
                   }}
                 >
                   DEVTRINE STUDIO
@@ -446,6 +447,7 @@ export const Scene10Closing: React.FC = () => {
                     fontSize: 20,
                     color: C.cyan,
                     letterSpacing: "0.08em",
+                    
                   }}
                 >
                   {/* CREATIVE TECH & MOTION GRAPHICS */}
@@ -458,7 +460,7 @@ export const Scene10Closing: React.FC = () => {
               style={{
                 position: "absolute",
                 left: 540,
-                top: 1200,
+                top: 1150,
                 transform: `translate(-50%, -50%) scale(${ctaPop * btnPress})`,
                 background: frame >= 332 ? C.green : C.cyan,
                 color: C.charcoal,
