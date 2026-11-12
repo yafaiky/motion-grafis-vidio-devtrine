@@ -6,7 +6,8 @@ out
 *.local
 
 # assets
-public/audio
+public/audio/bgm
+public/audio/sfx
 
 # Editor directories and files
 .vscode/*
