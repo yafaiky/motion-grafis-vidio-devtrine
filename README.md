@@ -110,6 +110,8 @@ dan jangan lupa untuk minta scriptnya ke ai buat lebih akurat.
 
 jika untuk jeda tidak usah mengarah ke frame tersebut.
 
+contoh :
+
 ```typescript
 {
             from: 6,
