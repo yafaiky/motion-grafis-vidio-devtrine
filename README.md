@@ -95,3 +95,34 @@ Jika ingin mengganti atau memasukkan rekaman suara baru:
 Audio akan otomatis disinkronkan presisi dengan timeline tiap scene video.
 
 dan jangan lupa untuk minta scriptnya ke ai buat lebih akurat.
+
+## Cara mengatur frame
+
+```typescript
+ {
+            from: 6,
+            to: 100,
+ }
+ ```
+
+ - **from dari frame awal**
+ - **to frame akhir**
+
+jika untuk jeda tidak usah mengarah ke frame tersebut.
+
+```typescript
+{
+            from: 6,
+            to: 100,
+            text: "Dulu manusia ngajarin komputer,",
+            hi: ["Dulu", "manusia", "komputer"],
+          },
+          {
+            from: 104,
+            to: 175,
+            text: "sekarang komputer bantuin manusia.",
+            hi: ["sekarang", "komputer", "bantuin", "manusia."],
+},
+```
+
+jadi jika angka frame di loncat maka akan menghilangkan.
